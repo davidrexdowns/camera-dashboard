@@ -1,0 +1,10 @@
+# /etc/caddy/Caddyfile snippet for gizzagawk.com on k3s-control
+# Public HTTPS → dashboard (HTML + API). Pi SSH/scp stays overlay-only.
+
+gizzagawk.com {
+    reverse_proxy 127.0.0.1:8000
+}
+
+www.gizzagawk.com {
+    redir https://gizzagawk.com{uri} permanent
+}

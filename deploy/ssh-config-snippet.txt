@@ -1,0 +1,13 @@
+# Append to ~/.ssh/config on WSL (one-time)
+
+Host edge-1
+    HostName 100.103.209.30
+    User david
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+Host k3s
+    HostName 170.64.229.136
+    User root
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes

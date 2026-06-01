@@ -1,0 +1,16 @@
+[Unit]
+Description=Gizz a Gawk camera dashboard
+After=network-online.target netbird.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/camera_dashboard
+EnvironmentFile=/opt/camera_dashboard/.env
+ExecStart=/opt/camera_dashboard/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000 --timeout-keep-alive 120
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
